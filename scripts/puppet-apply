@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+scriptdir=$(dirname $0)
+
+export FACTER_home=${HOME}
+export FACTER_user=$(id -u)
+export FACTER_group=$(id -g)
+
+exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" --debug

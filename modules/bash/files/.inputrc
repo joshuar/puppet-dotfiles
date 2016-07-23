@@ -1,0 +1,41 @@
+$include /etc/inputrc
+
+### SETTINGS
+
+set editing-mode emacs
+set keymap emacs
+set expand-tilde off
+set history-preserve-point on
+set visible-stats on
+set completion-ignore-case on
+set completion-map-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+### BINDINGS
+
+$if mode=emacs
+
+#
+# Arrow keys in ANSI mode
+#
+# left:
+"\C-[[D"        backward-char
+# right:
+"\C-[[C"        forward-char
+# up:
+"\C-[[A"        history-search-backward
+# down:
+"\C-[[B"        history-search-forward
+# Alt-right:
+"\C-[[1;3C"     kill-word
+# Alt-left:
+"\C-[[1;3D"     backward-kill-word
+# Ctrl-right:
+"\C-[[1;5C"     forward-word
+# Ctrl-left:
+"\C-[[1;5D"     backward-word
+"\C-[OD" backward-word
+"\C-[OC" forward-word
+
+$endif

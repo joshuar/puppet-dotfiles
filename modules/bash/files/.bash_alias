@@ -1,0 +1,425 @@
+### NOTES ON USE:
+# There are probably a whole heap of aliases in here
+# that may not be of use to you, feel free to comment
+# them out or remove them.  The whole handling of
+# Solaris/Linux aliases is clunky to say the least and
+# configured specifically for the computing set-up on which
+# this file is used by me, so please adjust accordingly to
+# your needs.
+
+# this function is a shortcut to check if the given program
+# is in PATH.
+is_avail () {
+    if type -P "$1" >/dev/null || test -e "/sbin/$1" || test -e "/usr/sbin/$1"; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+sudo_version=$(sudo -V | awk '{print $3}')
+if [[ ! $(echo -e "${sudo_version}\n1.7" | sort --version-sort 2> /dev/null | head -1) = "1.7" ]]; then
+    alias root='sudo -i -H'
+else
+    alias root="sudo -iH"
+fi
+unset sudo_version
+alias sudo='sudo '
+### emacs aliases
+alias e='emacs'
+alias en='emacs -nw'
+# some aliases to grab the latest winetricks and wisotool for wine users
+if is_avail wine; then
+    alias get_winetricks='sudo wget -O /usr/local/bin/winetricks http://winetricks.org/winetricks && sudo chmod +x /usr/local/bin/winetricks'
+    alias get_wisotool='sudo wget -O /usr/local/bin/wisotool http://kegel.com/wine/wisotool && sudo chmod +x /usr/local/bin/wisotool'
+fi
+# aliases to install Docker tools
+alias get_docker_machine="sudo curl -o /usr/local/bin/docker-machine -L https://github.com/docker/machine/releases/download/v0.4.1/docker-machine_linux-$(uname -m) && sudo chmod +x /usr/local/bin/docker-machine"
+alias get_docker_compose="sudo curl -o /usr/local/bin/docker-compose -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-$(uname -s)-$(uname -m) && sudo chmod +x /usr/local/bin/docker-compose"
+# Install some Elasticsearch tools
+alias get_stream2es="sudo curl -o /usr/local/bin/stream2es -L https://download.elasticsearch.org/stream2es/stream2es && sudo chmod +x /usr/local/bin/stream2es"
+# LANG=C with grep for speed. See also: http://www.pixelbeat.org/scripts/findrepo
+alias grep='LANG=C grep -I -d skip -D skip'
+alias grepr='LANG=C grep -nsIE -d recurse -D skip'
+### common typos
+alias maek='make'
+alias alais='alias'
+alias sl='ls'
+alias eamcs='emacs'
+alias sduo='sudo'
+### common command aliases
+alias rmdir='rm -r'
+alias rmtmp='rm *~ .*~'
+alias cpr='cp -R'
+alias cpa='cp -a'
+if is_avail glances; then
+    alias top='glances'
+    alias htop='glances'
+elif is_avail htop; then
+    alias top='htop'
+fi
+alias iotop='sudo iotop'
+alias powertop='sudo powertop'
+alias free='free -m'
+alias mtr='mtr -t'
+[[ "$(uname -o)" == 'GNU/Linux' ]] &&  alias ls='ls --color=auto'
+alias lsl='ls -lh'
+alias lsa='ls -ah'
+alias lsal='ls -alh'
+alias lsd='ls -d */'
+alias lss='ls -sSh' # sort by file size
+alias lst='ls -t' # sort by modification time
+alias lstr='ls -t' # sort by modification time (reverse)
+alias pst='ps -eo stime,pid,cmd' # list by start time
+alias pss='ps -eo rss,pmem,pid,cmd | sort -n' # list and sort by memory consumption
+alias du='du -h'
+alias df='df -h'
+alias tarc='tar cJf'
+alias tarx='tar xvf'
+alias rsync='ionice -c 3 nice rsync'
+alias journalctl_errors='journalctl -p err'
+alias journalctl_kernel='journalctl -k'
+is_avail fcrontab && alias crontab='fcrontab'
+is_avail tree || alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+# Don't track history
+# http://www.commandlinefu.com/commands/view/13948/dont-track-history-for-the-current-session-starting-after-the-command
+nohist(){ export HISTFILE=/dev/null; }
+# Check if dmesg supports the -T option and make that default
+# if it does because it is awesomely useful
+dmesg -V >/dev/null 2>&1
+if (( $? == 0 )); then
+    alias dmesg='dmesg -T -L'
+    # http://www.commandlinefu.com/commands/view/12993/show-errors-in-the-kernel-ring-buffer
+    alias dmesg_errors='dmesg -xT -l err,crit,emerg'
+fi
+
+#
+## Performance monitoring
+#
+alias watch_vmstat='vmstat 1'
+alias watch_mpstat='mpstat -p ALL 1'
+alias watch_pidstat='pidstat 1'
+alias watch_iostat='iostat -xz 1'
+alias watch_sar_tcp='sar -n TCP,ETCP 1'
+alias watch_sar_dev='sar -n DEV 1'
+
+#
+## cpustat
+#
+if test -e ~/gocode/bin/cpustat; then
+    alias cpustat="${HOME}/gocode/cpustat"
+fi
+
+#
+## find aliases
+#
+find_newer_than() {
+    tf=$(mktemp)
+    touch -t "$1" "${tf}" && find . -newer "${tf}" && rm -f "${tf}"
+}
+
+#
+## netstat aliases
+#
+if is_avail netstat; then
+    alias netstat_tcp='watch -n 1 "sudo netstat -tp"'
+    alias netstat_tcp_listening='watch -n 1 "sudo netstat -tlp"'
+    alias netstat_udp_listening='watch -n 1 "sudo netstat -ulp"'
+    netstat_remote_byip() { netstat -ntu | awk ' $5 ~ /^[0-9]/ {print $5}' | cut -d: -f1 | sort | uniq -c | sort -n; }
+fi
+
+#
+## ss aliases
+#
+if is_avail ss; then
+    alias ss_summary='sudo ss -s'
+    alias ss_listening='sudo ss -l'
+    alias ss_tcp='sudo ss -t -a'
+    alias ss_udp='sudo ss -u -a'
+    alias ss_raw='sudo ss -w -a'
+    alias ss_sock='sudo ss -x -a'
+fi
+
+#
+## lsof aliases
+#
+if is_avail lsof; then
+    lsof_port() { sudo lsof -i"TCP:${1}" -sTCP:LISTEN; };
+    ### find broken libraries after updates
+    # http://forums.gentoo.org/viewtopic-p-6405830.html#6405830
+    find_deadlibs() { sudo lsof | grep 'DEL.*lib' | cut -f 1 -d ' ' | sort -u; };
+fi
+
+#
+## tcpdump functions
+#
+if is_avail tcpdump; then
+    tcpdump_broadcast () {
+        [[ ! $1 ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" ether broadcast
+    }
+    tcpdump_udp () {
+        [[ ! $1 ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" udp
+    }
+    tcpdump_tcp () {
+        [[ ! $1 ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" tcp
+    }
+    tcpdump_arp () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" arp
+    }
+    tcpdump_icmp () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" icmp
+    }
+    tcpdump_dhcp () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" '(port 67 or port 68)'
+    }
+    tcpdump_syn () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" 'tcp[tcpflags] & (tcp-syn) != 0'
+    }
+    tcpdump_fin () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" 'tcp[tcpflags] & (tcp-fin) != 0'
+    }
+    tcpdump_ack () {
+        [[ ! "$1" ]] && echo "Pass me a network device..." && return 1
+        sudo tcpdump -i "$1" 'tcp[tcpflags] & (tcp-ack) != 0'
+    }
+    tcpdump_src () {
+        if [[ ! $1 ]] && [[ ! $2 ]]; then
+	   echo "Pass me an interface and IP address or hostname..." && return 1;
+	else
+            sudo tcpdump -i "$1" src "$2"
+	fi
+    }
+    tcpdump_dst () {
+        if [[ ! $1 ]] && [[ ! $2 ]]; then
+	   echo "Pass me an interface and IP address or hostname..." && return 1;
+	else
+            sudo tcpdump -i "$1" dst "$2"
+	fi
+    }
+fi
+
+#
+## strace aliases
+#
+if is_avail strace; then
+    alias strace_general='sudo strace -e trace=clone,execve,chdir,open,creat,connect,accept,read,write,unlink,rename,brk,mmap,munmap,select,poll,kill'
+    alias strace_fd='sudo strace -e trace=chdir,open,creat,read,write,unlink,rename'
+    alias strace_net='sudo strace -e trace=connect,accept,read,write'
+    alias strace_sys='sudo strace -e trace=clone,execve,kill'
+    alias strace_mem='sudo strace -e trace=brk,mmap,munmap'
+    alias strace_wait='sudo strace -e trace=select,poll'
+fi
+#
+## perf aliases
+#
+if is_avail perf; then
+    perf_stat_counters () {
+        [[ ! $1 ]] && echo "Pass me a time increment to sample for..." && return 1
+	sudo perf stat -a sleep "$1"
+    }
+    perf_stat_syscalls () {
+        [[ ! $1 ]] && echo "Pass me a time increment to sample for..." && return 1
+        sudo perf stat -e 'syscalls:sys_enter_*' -a sleep "$1"
+    }
+    perf_stat_syscalls_pid () {
+        [[ ! $1 ]] && echo "Pass me a pid..." && return 1
+        sudo perf stat -e 'syscalls:sys_enter_*' -p "$1"
+    }
+    perf_stat_block () {
+        [[ ! $1 ]] && echo "Pass me a time increment to sample for..." && return 1
+        sudo perf stat -e 'block:*' -a sleep "$1"
+    }
+    perf_stat_block_pid () {
+        [[ ! $1 ]] && echo "Pass me a pid..." && return 1
+        sudo perf stat -e 'block:*' -p "$1"
+    }
+    perf_stat_sched_pid () {
+        [[ ! $1 ]] && echo "Pass me a pid..." && return 1
+	sudo perf stat -e 'sched:*' -p "$1"
+    }
+    alias perf_trace_sockbuf='sudo perf record -e skb:consume_skb -ag'
+    alias perf_trace_diskio='sudo perf record -e block:block_rq_issue -ag'
+    alias perf_stack_trace='cd /tmp && sudo perf record -F 99 -ag -- sleep 30 && sudo perf script && cd -'
+fi
+
+#
+## gist aliases
+## see: https://major.io/2014/08/08/use-gist-gem-github-enterprise-github-com/
+#
+if is_avail gist; then
+    alias gist="gist -c"
+fi
+
+#
+## screen aliases
+#
+if is_avail screen; then
+    alias sls='screen -ls'
+    alias sr='screen -R'
+fi
+
+#
+## tmux aliases
+#
+if is_avail tmux; then
+    alias tm='tmux -2'
+    tmn() { tmux new-session -t "${1}"; };
+    alias tma='tmux attach-session'
+    tman() { tmux attach-session "${1}"; };
+    alias tmls='tmux list-sessions'
+fi
+
+#
+## Use thefuck
+## https://github.com/nvbn/thefuck
+#
+is_avail thefuck && alias fuck='$(thefuck $(fc -ln -1))'
+
+#
+## puppet aliases/functions
+#
+puppet_last_modified() {
+    pushd /var/lib/puppet
+    for i in $(find clientbucket/ -name paths); do
+        echo "$(stat -c %y $i | sed 's/\..*//')       $(cat $i)";
+    done | sort -n
+    popd
+}
+
+#
+## helper functions for determining hardware CFLAGS for compilation
+## http://en.gentoo-wiki.com/wiki/Hardware_CFLAGS
+#
+if is_avail gcc; then
+    gcc_get_proc_features() {
+        echo 'int main() { return 0; }' | gcc -march=native -v -E - 2>&1 | grep march
+    }
+    gcc_check_proc_features() {
+        [[ ! $1 ]] && echo "Need to specify a gcc proc option." && return 1
+        echo 'int main() { return 0; }' | gcc -march=$1 -v -Q -x c - 2>&1
+    }
+
+    # gcc 4.9 and up can colourise error/warning messages, so use that
+    # if possible
+    if ! test -h "$(type -P gcc)"; then
+	gcc_version=$(gcc --version | head -1 | cut -f3 -d' ')
+	gcc_version_compare=$(echo -e "${gcc_version}\n4.9" | sort -V | head -1)
+	if [[ ${gcc_version_compare} != ${gcc_version} ]]; then
+            alias gcc='gcc -fdiagnostics-color=auto'
+	fi
+	unset gcc_version gcc_version_compare
+    fi
+fi
+
+pip_packages() {
+    find /usr/lib/python2.7/site-packages -maxdepth 2 -name __init__.py | xargs rpm -qf | grep 'not owned by any package' | sed -r 's:.*/(\w+)/__.*:\1:'
+}
+
+#
+## Nice function to find files modified by puppet recently:
+## http://lzone.de/Puppet-List-Changed-Files
+#
+if is_avail puppet; then
+    puppet_last_modified() {
+        pushd /var/lib/puppet
+        for i in $(find clientbucket/ -name paths); do
+            echo "$(stat -c %y $i | sed 's/\..*//')       $(cat $i)";
+        done | sort -n
+        popd
+    }
+fi
+
+#
+## Spark stuff
+#
+if is_avail spark; then
+    spark_load() {
+        echo "$(cut -d ' ' -f 1-3 < /proc/loadavg) $(egrep -c '^processor' /proc/cpuinfo)00 0" | sed 's/\(0\.\|0\.0\|\.\)//g' | spark | tail -n 1 | cut -b 1-9;
+    }
+    spark_mem() {
+        total=$(grep 'MemTotal' /proc/meminfo | egrep -o '[0-9]+')
+        not_apps=0
+        for mem in $(egrep '(MemFree|Buffers|Cached|Slab|PageTables|SwapCached)' /proc/meminfo | egrep -o '[0-9]+'); do
+            not_apps=$((not_apps+mem))
+        done
+        spark $((total-not_apps)) "$total" 0 | tail -n 1 | cut -b 1-3
+    }
+    if is_avail fping; then
+        spark_fping_google() {
+            fping -C 5 -q google.com google.com.au gmail.google.com drive.google.com plus.google.com 2>&1 | awk '{print int($3)}' | xargs ~/scripts/spark
+        }
+    fi
+fi
+
+
+#
+## Vagrant stuff
+#
+if is_avail vagrant; then
+    vagrant_set_provider() {
+	if [[ "$1" == "aws" ]]; then
+	    export VAGRANT_DEFAULT_PROVIDER=aws
+	else
+	    export VAGRANT_DEFAULT_PROVIDER=virtualbox
+	fi
+    }
+fi
+
+#
+## distro specifc aliases
+#
+if [[ -e /etc/gentoo-release ]]; then
+    set_compiler_flags() {
+	export CFLAGS=$(egrep "^CFLAGS" /etc/make.conf | sed "s|CFLAGS=||" | sed 's|"||g')
+	export CXXFLAGS="${CFLAGS}"
+	export FFLAGS="${CFLAGS}"
+	export MAKEOPTS=$(egrep "^MAKEOPTS" /etc/make.conf | sed "s|MAKEOPTS=||" | sed 's|"||g')
+    }
+    whichpkg() { equery belongs "$@"; }
+    alias emerge='sudo emerge'
+    whymask() { # stolen from GMN
+        find /usr/portage/profiles/ -name '*.mask' -exec \
+            awk -vRS= "/${*/\//.}/ {
+                print \" \" FILENAME \":\", \"\n\" \"\n\" \$0 \"\n\"
+        }" {} + | less
+    }
+    alias emerge_world='emerge --ask --tree --verbose --changed-use --deep --update --with-bdeps=y @world'
+    alias emerge_depclean='emerge --ask --depclean'
+    alias emerge_sync='sudo layman -S; sudo eix-sync'
+    alias emerge_rebuild='emerge @preserved-rebuild'
+    alias emerge_kmod_rebuild='emerge @module-rebuild'
+    alias emerge_conf_update='sudo dispatch-conf'
+fi
+if [[ -e /etc/fedora-release ]] || [[ -e /etc/centos-release ]]; then
+    # commandlinefu.com
+    whichpkg() { rpm -qf "$@"; }
+    summpkg() { rpm -qfi "$@"; }
+fi
+if [[ -e /etc/fedora-release ]]; then
+    alias yum='dnf'
+fi
+if [[ -e /etc/debian_version ]]; then
+    # commandlinefu.com
+    summpkg() { dpkg -s $(dpkg -S $1 | egrep -w $(which $1)$ | awk -F: '{print $1}') ; }
+    whichpkg() { dpkg -S $1 | egrep -w $(which $1)$; }
+    alias apt-get='sudo apt-get'
+fi
+if  [[ -e /etc/SuSE-release ]]; then
+    whichpkg() { rpm -qf "$@"; }
+    summpkg() { rpm -qfi "$@"; }
+    alias zypper='sudo zypper'
+fi
+if  [[ -e /etc/sabayon-release ]]; then
+    whichpkg() { sudo equery belongs "$@"; }
+    alias equo='sudo equo'
+    alias equo_update='sudo equo update'
+    alias equo_upgrade='sudo equo upgrade'
+fi

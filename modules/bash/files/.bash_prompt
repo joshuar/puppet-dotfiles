@@ -1,0 +1,105 @@
+# The functions used here are adapted from:
+# http://blog.sanctum.geek.nz/bash-prompts/
+# and many other locations on the web. If you
+# see your code here and I haven't given credit,
+# please email me and I'll add your details
+
+
+show_256_colors() {
+    (x=`tput op` y=`printf %76s`;for i in {0..256};do o=00$i;echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;done)
+}
+
+# This function echos the escape sequence for setting a 256 colour
+# for the bash prompt.  Note its syntax won't work for creating
+# 256 colours elsewhere
+function c256() {
+    echo -e "\[\033[38;5;${1}m\]"
+}
+
+# The following three functions will display extra vcs information
+# if the working directory in detected to be under version control
+function prompt_git() {
+    if [[ -e /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
+        . /usr/share/git-core/contrib/completion/git-prompt.sh
+        __git_ps1
+    else
+        git branch &>/dev/null || return 1
+        HEAD="$(git symbolic-ref HEAD 2>/dev/null)"
+        BRANCH="${HEAD##*/}"
+        [[ -n "$(git status 2>/dev/null | \
+        grep -F 'working directory clean')" ]] || STATUS="!"
+        printf '(git:%s)' "${BRANCH:-unknown}${STATUS}"
+    fi
+}
+function prompt_hg() {
+    hg branch &>/dev/null || return 1
+    BRANCH="$(hg branch 2>/dev/null)"
+    [[ -n "$(hg status 2>/dev/null)" ]] && STATUS="!"
+    printf '(hg:%s)' "${BRANCH:-unknown}${STATUS}"
+}
+function prompt_svn() {
+    svn info &>/dev/null || return 1
+    URL="$(svn info 2>/dev/null | \
+        awk -F': ' '$1 == "URL" {print $2}')"
+    ROOT="$(svn info 2>/dev/null | \
+        awk -F': ' '$1 == "Repository Root" {print $2}')"
+    BRANCH=${URL/$ROOT}
+    BRANCH=${BRANCH#/}
+    BRANCH=${BRANCH#branches/}
+    BRANCH=${BRANCH%%/*}
+    [[ -n "$(svn status 2>/dev/null)" ]] && STATUS="!"
+    printf '(svn:%s)' "${BRANCH:-unknown}${STATUS}"
+}
+function prompt_vcs() {
+    prompt_git || prompt_svn || prompt_hg
+}
+
+# This function will display "user@host" right-aligned
+function right_align_user_and_host() {
+    printf "%${COLUMNS}s\n" "${USER}@${HOSTNAME}"
+}
+
+
+# Here is the bash-prompt.  It uses 256 colours by default.  The
+# functions above are also used to add extra information to the
+# prompt when relevant
+
+prompt_256on() {
+    unset PS1
+    if [[ -n ${SCHROOT_CHROOT_NAME} ]]; then
+        prompt="\n$(c256 231)\u@\h (chroot:${SCHROOT_CHROOT_NAME})$(c256 255)\n"
+    else
+        prompt="\n$(c256 231)\u@\h$(c256 255)\n"
+    fi
+    if [[ ! -w . ]]; then
+        prompt="${prompt}$(c256 001)ro:\w$(c256 255)"
+    else
+        prompt="${prompt}$(c256 222)\w$(c256 255)"
+    fi
+    PS1="${prompt} \$(prompt_vcs)$(c256 255)\n$(c256 255)$(c256 214)$(c256 244)PID:$$ bg:\j \$\[\033[0m\] "
+    export PS1
+}
+
+prompt_off() {
+    PS1="\n\u@\h\n\w\nPID:$$ bg:\j \$ "
+
+}
+
+# set a coloured prompt based on terminal support
+create_prompt() {
+    case ${TERM} in
+        xterm-256color|screen-256color|gnome-256color)
+            prompt_256on
+            PROMPT_COMMAND="\$(prompt_256on)"
+            ;;
+        xterm|screen|linux)
+            prompt_off
+            PROMPT_COMMAND="\$(prompt_off)"
+            ;;
+        *)
+            prompt_off
+            PROMPT_COMMAND="\$(prompt_off)"
+            ;;
+    esac
+    export PROMPT_COMMAND
+}

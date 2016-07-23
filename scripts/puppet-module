@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+scriptdir=$(dirname $0)
+
+exec puppet module $* --modulepath "${scriptdir}/../modules"
