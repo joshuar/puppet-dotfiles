@@ -168,11 +168,21 @@
       (autoload 'rspec-mode "rspec-mode")))
 
   ;; use cperl-mode
-  (use-package cperl-mode)
+  (use-package cperl-mode
+    :init
+    (defalias 'perl-mode 'cperl-mode))
 
   ;; use ruby modes
+  (use-package ruby-mode
+    :mode "\\.rb\\'"
+    :interpreter "ruby")
   (use-package ruby-tools)
   (use-package ruby-additional)
+
+  ;; use python mode
+  (use-package python
+    :mode ("\\.py\\'" . python-mode)
+    :interpreter ("python" . python-mode))
 
   ;; elasticsearch/logstash
   (use-package es-mode)
@@ -207,6 +217,13 @@
 ;;
 ;; GENERAL SETTINGS
 ;;
+
+;; CUA Mode - "normal" copy/cut/paste
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+(global-set-key (kbd "<mouse-2>") 'x-clipboard-yank) ;; paste with middle-mouse key from clipboard
 
 ;; Tweak file-name completion:
 ;; - make it case-insensitive
@@ -249,10 +266,6 @@
 
 ;; Typing when the mark is active will write over the marked region
 (delete-selection-mode t)
-;; make the common highlighting keystrokes work the way most people expect them to
-(transient-mark-mode t)
-;; make the emacs clipboard work with the system clipboard
-(setq x-select-enable-clipboard t)
 
 ;; Default to text-mode for files that aren't
 ;; automatically recognised
@@ -324,19 +337,6 @@
 ;; add line numbers in left margin
 (global-linum-mode 1)
 
-;; cperl-mode is preferred to perl-mode
-(defalias 'perl-mode 'cperl-mode)
-
-(autoload 'python-mode "python-mode")
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
-
-;; ruby-mode
-(autoload 'ruby-mode "ruby-mode")
-(add-to-list 'auto-mode-alist
-             '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist
-             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
 ;; rst-mode
 (require 'rst)
@@ -348,9 +348,6 @@
 ;; ini file mode
 (autoload 'conf-mode "conf-mode")
 (add-to-list 'auto-mode-alist '("\\.ini\\'" . conf-mode))
-
-;; show number of matches when searching
-;;(global-anzu-mode +1)
 
 ;; make sure duplicate file names (from different
 ;; directories) are uniquely displayed
