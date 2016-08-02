@@ -2,8 +2,38 @@
 
 scriptdir=$(dirname $0)
 
-export FACTER_home=${HOME}
-export FACTER_user=$(id -u)
-export FACTER_group=$(id -g)
+while getopts ":n:e:u:" opt; do
+    case $opt in
+        e)
+            if [[ -n $OPTARG ]]; then
+                export FACTER_myname=$OPTARG
+            else
+                echo "Argument to -${opt} should a full name."
+                exit -1
+            fi
+            ;;
+        n)
+            if [[ -n $OPTARG ]]; then
+                export FACTER_myemail=$OPTARG
+            else
+                echo "Argument to -${opt} should be an email address."
+                exit -1
+            fi
+            ;;
+        u)
+	    if $(getent passwd $OPTARG 1> /dev/null 2>&1); then
+		export FACTER_myuser=$(id -u $OPTARG)
+		export FACTER_mygroup=$(id -g $OPTARG)
+		export FACTER_myhome="/home/$OPTARG"
+	    else
+		echo "Argument to -${opt} should be a valid username."
+		exit -1
+	    fi
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            ;;
+    esac
+done
 
-exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp"
+exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" --noop
