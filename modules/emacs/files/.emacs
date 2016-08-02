@@ -219,7 +219,6 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (transient-mark-mode 1) ;; No region when it is not highlighted
 (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
-(setq cua-remap-control-z nil)
 (global-set-key (kbd "<mouse-2>") 'x-clipboard-yank) ;; paste with middle-mouse key from clipboard
 
 ;; Tweak file-name completion:
@@ -374,8 +373,6 @@
 (global-set-key (kbd "C-c l") 'goto-line)
 (global-set-key (kbd "C-c f") 'fill-region)
 (global-set-key (kbd "C-c q") 'refill-mode)
-(global-set-key (kbd "C-x C-b") 'bs-show)
-(global-set-key (kbd "<mouse-2>") 'x-clipboard-yank)
 
 ;;
 ;; FUNCTIONS
