@@ -141,10 +141,6 @@
     :mode "\\.json$")
   (use-package json-reformat)
 
-  ;; use python-mode
-  (use-package python-mode
-    :mode "\\.py$")
-
   ;; use php-mode
   (use-package php-mode
     :mode "\\.php$")
@@ -223,7 +219,7 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (transient-mark-mode 1) ;; No region when it is not highlighted
 (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
-(setq cua-remap-control-z nil)c
+(setq cua-remap-control-z nil)
 (global-set-key (kbd "<mouse-2>") 'x-clipboard-yank) ;; paste with middle-mouse key from clipboard
 
 ;; Tweak file-name completion:
