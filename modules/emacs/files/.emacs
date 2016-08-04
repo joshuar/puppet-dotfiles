@@ -66,15 +66,6 @@
     (global-set-key [remap query-replace] 'anzu-query-replace)
     (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
 
-  ;; smooth-scrolling
-  (use-package sublimity
-    :if window-system
-    :init
-    (require 'sublimity)
-    (require 'sublimity-scroll)
-    :config
-    (sublimity-mode 1))
-
   ;; indent guides
   (use-package indent-guide
     :init
