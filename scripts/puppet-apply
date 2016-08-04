@@ -5,20 +5,10 @@ scriptdir=$(dirname $0)
 while getopts ":n:e:u:do" opt; do
     case $opt in
         e)
-            if [[ -n $OPTARG ]]; then
-                export FACTER_myname=$OPTARG
-            else
-                echo "Argument to -${opt} should a full name."
-                exit -1
-            fi
+            export FACTER_myname=${OPTARG}
             ;;
         n)
-            if [[ -n $OPTARG ]]; then
-                export FACTER_myemail=$OPTARG
-            else
-                echo "Argument to -${opt} should be an email address."
-                exit -1
-            fi
+            export FACTER_myemail=$OPTARG
             ;;
         u)
 	    if $(getent passwd $OPTARG 1> /dev/null 2>&1); then
@@ -39,7 +29,12 @@ while getopts ":n:e:u:do" opt; do
         \?)
             echo "Invalid option: -$OPTARG" >&2
             ;;
+	:)
+	    echo "Option -$OPTARG requires an argument." >&2
+	    exit 1
+	    ;;
     esac
+
 done
 
 exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" ${puppet_extra_args}
