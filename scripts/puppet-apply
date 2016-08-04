@@ -2,7 +2,7 @@
 
 scriptdir=$(dirname $0)
 
-while getopts ":n:e:u:" opt; do
+while getopts ":n:e:u:do" opt; do
     case $opt in
         e)
             if [[ -n $OPTARG ]]; then
@@ -30,10 +30,16 @@ while getopts ":n:e:u:" opt; do
 		exit -1
 	    fi
             ;;
+	d)
+	    puppet_extra_args="${puppet_extra_args} --debug"
+	    ;;
+	o)
+	    puppet_extra_args="${puppet_extra_args} --noop"
+	    ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
             ;;
     esac
 done
 
-exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" --noop
+exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" ${puppet_extra_args}
