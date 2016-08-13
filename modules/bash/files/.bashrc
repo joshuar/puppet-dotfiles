@@ -79,7 +79,7 @@ test -d "${GOPATH}/bin" && export PATH="${GOPATH}/bin:${PATH}"
 ### APP SETTINGS
 if type -P less >/dev/null; then
     export PAGER='less'
-    export LESS='-b512Fgj5JMqRS --follow-name'
+    export LESS='FgJMqRw --follow-name'
 fi
 # LaTeX customisations in ~/texmf, supported by texlive
 if type -P latex >/dev/null; then
