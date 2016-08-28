@@ -10,8 +10,8 @@ set completion-map-case on
 set show-all-if-ambiguous on
 
 
-"\e[A":history-search-forward
-"\e[B":history-search-backward
+"\e[A":history-search-backward
+"\e[B":history-search-forward
 # append sudo with Alt+S
 "\es":"\C-asudo \C-e"
 # send a command to the background and discard output
