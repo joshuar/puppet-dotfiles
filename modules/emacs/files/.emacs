@@ -24,13 +24,6 @@
     :config
     (powerline-default-theme))
 
-  ;; Symon - system monitor in minibuffer when idle
-  (use-package symon
-    :init
-    (require 'symon)
-    :config
-    (symon-mode))
-
   ;; use dynamic-fonts package to pick some good
   ;; default fonts
   (use-package dynamic-fonts
