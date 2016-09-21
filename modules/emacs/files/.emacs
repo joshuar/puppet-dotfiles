@@ -183,13 +183,14 @@
 
   ;; themes
   (use-package hc-zenburn-theme)
-  (use-package ample-zen-theme
-    :config
-    (load-theme 'ample-zen :no-confirm))
+  (use-package ample-zen-theme)
+  (use-package color-theme-cobalt)
+  (color-theme-initialize)
+  (if window-system
+        (color-theme-cobalt)
+	(color-theme-calm-forest))
 
-  ;; Disable some modes in text-mode:
-  ;;  - flycheck-mode
-  ;;  - ac-mode
+  ;; disable some modes in text-mode
   (remove-hook 'text-mode 'ac-mode)
 
   )
@@ -400,12 +401,6 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Droid Sans Mono" :foundry "1ASC" :slant normal :weight normal :height 102 :width normal)))))
 
 ;; Local Variables:
 ;; mode: lisp
