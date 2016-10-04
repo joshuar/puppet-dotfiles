@@ -96,7 +96,7 @@ fi
 # If PS1 is set (interactive session)
 if [[ -n $PS1 ]]; then
     # Disable START/STOP flow control
-    stty -ixon -ixoff
+    [[ $- == *i* ]] && stty -ixon -ixoff
     # Create prompt with bash-powerline
     if [[ -f `which powerline-daemon` ]]; then
         powerline-daemon -q
