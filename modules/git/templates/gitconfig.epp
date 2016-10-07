@@ -1,0 +1,23 @@
+# MANAGED BY PUPPET
+[color]
+	ui = 1
+
+[help]
+	autocorrect = 1
+
+[user]
+	name = <%= $::myname %>
+	email = <%= $::myemail %>
+
+[push]
+	default = simple
+
+[alias]
+	st = status -sb
+	pr = "!f() { git fetch origin pull/$1/head:pr/$1; }; f"
+	co = checkout
+	cm = commit
+	p = push
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v

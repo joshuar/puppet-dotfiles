@@ -4,10 +4,10 @@ scriptdir=$(dirname $0)
 
 while getopts ":n:e:u:do" opt; do
     case $opt in
-        e)
+        n)
             export FACTER_myname=${OPTARG}
             ;;
-        n)
+        e)
             export FACTER_myemail=$OPTARG
             ;;
         u)
@@ -26,11 +26,13 @@ while getopts ":n:e:u:do" opt; do
 	o)
 	    puppet_extra_args="${puppet_extra_args} --noop"
 	    ;;
-        \?)
-            echo "Invalid option: -$OPTARG" >&2
-            ;;
+    \?)
+        echo "Invalid option: -$OPTARG" >&2
+		echo "Ex. usage: $0 -n 'John Doe' -e john@doe.com -u john"
+        ;;
 	:)
 	    echo "Option -$OPTARG requires an argument." >&2
+		echo "Ex. usage: $0 -n 'John Doe' -e john@doe.com -u john"
 	    exit 1
 	    ;;
     esac

@@ -30,6 +30,12 @@
     :config
     (dynamic-fonts-setup))
 
+  ;; use smart-tabs
+  (use-package smart-tabs-mode
+    :config
+    (smart-tabs-mode)
+    (smart-tabs-insinuate 'c 'javascript 'java 'cperl 'python 'c++ 'ruby))
+
   ;; better minibuffer auto-complete and navigation
   (use-package smex
     :config
@@ -147,6 +153,9 @@
     (progn
       (autoload 'rspec-mode "rspec-mode")))
 
+  ;; use asciidoc mode
+  (use-package adoc-mode)
+
   ;; use cperl-mode
   (use-package cperl-mode
     :init
@@ -198,6 +207,9 @@
 ;;
 ;; GENERAL SETTINGS
 ;;
+
+;; Default tab-width 4
+(setq-default tab-width 4)
 
 ;; CUA Mode - "normal" copy/cut/paste
 (cua-mode t)

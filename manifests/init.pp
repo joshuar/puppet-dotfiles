@@ -1,5 +1,6 @@
 include ::bash
 include ::emacs
+include ::git
 
 file { "$::myhome/.tmux.conf":
   ensure    => file,

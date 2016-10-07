@@ -1,5 +1,10 @@
 class git {
-  exec { 'set-git-username':
-    command => "/usr/bin/git config --global user.name
-
+  file { "$::myhome/.gitconfig":
+    ensure    => file,
+    content   => epp('git/gitconfig.epp'),
+    owner     => $::myuser,
+    group     => $::mygroup,
+    mode      => '0644',
+    show_diff => true
+  }
 }
