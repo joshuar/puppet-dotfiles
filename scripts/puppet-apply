@@ -39,4 +39,4 @@ while getopts ":n:e:u:do" opt; do
 
 done
 
-exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" --parser future ${puppet_extra_args}
+exec puppet apply --modulepath "${scriptdir}/../modules" --verbose "${scriptdir}/../manifests/init.pp" ${puppet_extra_args}
