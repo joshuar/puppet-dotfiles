@@ -1,6 +1,7 @@
 include ::bash
 include ::emacs
 include ::git
+include ::golang
 
 file { "$::myhome/.tmux.conf":
   ensure    => file,
