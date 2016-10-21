@@ -35,7 +35,7 @@ if is_avail wine; then
 fi
 # aliases to install Docker tools
 alias get_docker_machine="sudo curl -o /usr/local/bin/docker-machine -L https://github.com/docker/machine/releases/download/v0.4.1/docker-machine_linux-$(uname -m) && sudo chmod +x /usr/local/bin/docker-machine"
-alias get_docker_compose="sudo curl -o /usr/local/bin/docker-compose -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-$(uname -s)-$(uname -m) && sudo chmod +x /usr/local/bin/docker-compose"
+alias get_docker_compose="sudo curl -o /usr/local/bin/docker-compose -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m) && sudo chmod +x /usr/local/bin/docker-compose"
 # Install some Elasticsearch tools
 alias get_stream2es="sudo curl -o /usr/local/bin/stream2es -L https://download.elasticsearch.org/stream2es/stream2es && sudo chmod +x /usr/local/bin/stream2es"
 # LANG=C with grep for speed. See also: http://www.pixelbeat.org/scripts/findrepo
@@ -423,3 +423,7 @@ if  [[ -e /etc/sabayon-release ]]; then
     alias equo_update='sudo equo update'
     alias equo_upgrade='sudo equo upgrade'
 fi
+
+# Local Variables:
+# mode: shell
+# End:
