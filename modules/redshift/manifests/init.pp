@@ -1,5 +1,5 @@
 class redshift {
-  file { "$::myhome/config/redshift.conf":
+  file { "$::myhome/.config/redshift.conf":
     ensure    => file,
     source    => 'puppet:///modules/redshift/redshift.conf',
     owner     => $::myuser,
