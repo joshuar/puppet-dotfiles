@@ -1,6 +1,7 @@
 include ::bash
 include ::emacs
 include ::git
+include ::redshift
 include ::golang
 
 file { "$::myhome/.tmux.conf":

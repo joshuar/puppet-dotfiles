@@ -111,6 +111,13 @@ if test -e ~/gocode/bin/cpustat; then
 fi
 
 #
+## bcc tools
+#
+if test -d /usr/share/bcc/tools; then
+	export PATH=/usr/share/bcc/tools:${PATH}
+fi
+
+#
 ## find aliases
 #
 find_newer_than() {
