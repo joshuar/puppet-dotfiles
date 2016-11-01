@@ -27,6 +27,12 @@
   ;; use dynamic-fonts package to pick some good
   ;; default fonts
   (use-package dynamic-fonts
+	:init
+	(setq dynamic-fonts-preferred-monospace-fonts
+		  (quote
+		   ("Inconsolata" "Droid Sans Mono" "DejaVu Sans Mono" "Bitstream Vera Sans Mono" "PT Mono" "Courier New" "Courier" "Ubuntu Mono" "Liberation Mono" "Free Mono")))
+	(setq dynamic-fonts-preferred-monospace-point-size 10)
+	(setq dynamic-fonts-preferred-proportional-point-size 10)
     :config
     (dynamic-fonts-setup))
 
@@ -404,6 +410,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(color-theme-is-cumulative nil)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(compilation-message-face (quote default))
