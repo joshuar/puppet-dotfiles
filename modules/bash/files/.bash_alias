@@ -92,6 +92,8 @@ if (( $? == 0 )); then
     # http://www.commandlinefu.com/commands/view/12993/show-errors-in-the-kernel-ring-buffer
     alias dmesg_errors='dmesg -xT -l err,crit,emerg'
 fi
+alias weather='curl http://wttr.in/'
+alias moon='curl http://wttr.in/Moon'
 
 #
 ## Performance monitoring
