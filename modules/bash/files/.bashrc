@@ -73,8 +73,8 @@ fi
 
 ### PATH SETTINGS
 export PATH=${PATH#:}
-test -d ~/scripts && export PATH="${HOME}/scripts:${PATH}"
-test -d "${GOPATH}/bin" && export PATH="${GOPATH}/bin:${PATH}"
+test -d ~/scripts && export PATH=${HOME}/scripts:${PATH}
+test -d ${GOPATH}/bin && export PATH=${GOPATH}/bin:${PATH}
 
 ### APP SETTINGS
 if type -P less >/dev/null; then

@@ -33,11 +33,6 @@ if is_avail wine; then
     alias get_winetricks='sudo wget -O /usr/local/bin/winetricks http://winetricks.org/winetricks && sudo chmod +x /usr/local/bin/winetricks'
     alias get_wisotool='sudo wget -O /usr/local/bin/wisotool http://kegel.com/wine/wisotool && sudo chmod +x /usr/local/bin/wisotool'
 fi
-# aliases to install Docker tools
-alias get_docker_machine="sudo curl -o /usr/local/bin/docker-machine -L https://github.com/docker/machine/releases/download/v0.4.1/docker-machine_linux-$(uname -m) && sudo chmod +x /usr/local/bin/docker-machine"
-alias get_docker_compose="sudo curl -o /usr/local/bin/docker-compose -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m) && sudo chmod +x /usr/local/bin/docker-compose"
-# Install some Elasticsearch tools
-alias get_stream2es="sudo curl -o /usr/local/bin/stream2es -L https://download.elasticsearch.org/stream2es/stream2es && sudo chmod +x /usr/local/bin/stream2es"
 # LANG=C with grep for speed. See also: http://www.pixelbeat.org/scripts/findrepo
 alias grep='LANG=C grep -I -d skip -D skip'
 alias grepr='LANG=C grep -nsIE -d recurse -D skip'
@@ -52,10 +47,7 @@ alias rmdir='rm -r'
 alias rmtmp='rm *~ .*~'
 alias cpr='cp -R'
 alias cpa='cp -a'
-if is_avail glances; then
-    alias top='glances'
-    alias htop='glances'
-elif is_avail htop; then
+if is_avail htop; then
     alias top='htop'
 fi
 alias iotop='sudo iotop'
@@ -104,20 +96,6 @@ alias watch_pidstat='pidstat 1'
 alias watch_iostat='iostat -xz 1'
 alias watch_sar_tcp='sar -n TCP,ETCP 1'
 alias watch_sar_dev='sar -n DEV 1'
-
-#
-## cpustat
-#
-if test -e ~/gocode/bin/cpustat; then
-    alias cpustat="${HOME}/gocode/cpustat"
-fi
-
-#
-## bcc tools
-#
-if test -d /usr/share/bcc/tools; then
-	export PATH=/usr/share/bcc/tools:${PATH}
-fi
 
 #
 ## find aliases
