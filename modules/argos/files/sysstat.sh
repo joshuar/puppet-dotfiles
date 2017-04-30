@@ -28,12 +28,12 @@ MEMUSED=$(echo "scale=2;($MEMTOT - $MEMAVA)" | bc)
 TOPMEM=$(ps aux --no-headers | awk '{print $4 " "  $11}' | sort -rn | head -n 5)
 
 # get hard drive usage info
-HD=$(df -hl /dev/mapper/fedora_agalloch-home | tail -1 | awk '{printf ("%02d", $5)}' | sed -e 's/%//')
+HD=$(df -hl /home | tail -1 | awk '{printf ("%02d", $5)}' | sed -e 's/%//')
 [ $DEBUG -eq 1 ] && echo "DEBUG: hd -> "$HD
-HDSIZE=$(df -hl /dev/mapper/fedora_agalloch-home | tail -1 | awk '{print $2}' | sed -e 's/G//')
-HDUSED=$(df -hl /dev/mapper/fedora_agalloch-home | tail -1 | awk '{print $3}' | sed -e 's/G//')
+HDSIZE=$(df -hl /home | tail -1 | awk '{print $2}' | sed -e 's/G//')
+HDUSED=$(df -hl /home | tail -1 | awk '{print $3}' | sed -e 's/G//')
 [ $DEBUG -eq 1 ] && echo "DEBUG: hd size -> $HDSIZE GB drive capacity"
-TOPHD=$(df -hl /dev/mapper/fedora_agalloch-home | tail -1)
+TOPHD=$(df -hl /home | tail -1)
 
 [ $DEBUG -eq 1 ] && echo "DEBUG: genmon output"
 
