@@ -3,6 +3,7 @@ include ::emacs
 include ::git
 include ::redshift
 include ::golang
+include ::argos
 
 file { "$::myhome/.tmux.conf":
   ensure    => file,
