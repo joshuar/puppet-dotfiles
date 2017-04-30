@@ -13,3 +13,10 @@ file { "$::myhome/.tmux.conf":
   mode      => '0644',
   show_diff => true
 }
+
+file { "$::myhome/.config":
+  ensure => "directory",
+  owner     => $::myuser,
+  group     => $::mygroup,
+  mode      => '0750',
+}
