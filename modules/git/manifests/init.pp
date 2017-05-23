@@ -4,7 +4,13 @@ class git {
     content   => epp('git/gitconfig.epp'),
     owner     => $::myuser,
     group     => $::mygroup,
-    mode      => '0644',
+    mode      => '0640',
     show_diff => true
+  }
+  file { "$::myhome/git":
+    ensure    => directory,
+    owner     => $::myuser,
+    group     => $::mygroup,
+    mode      => '0640',
   }
 }
