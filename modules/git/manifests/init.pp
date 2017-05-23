@@ -8,9 +8,9 @@ class git {
     show_diff => true
   }
   file { "$::myhome/git":
-    ensure    => directory,
-    owner     => $::myuser,
-    group     => $::mygroup,
-    mode      => '0640',
+    ensure => directory,
+    owner  => $::myuser,
+    group  => $::mygroup,
+    mode   => '0640',
   }
 }
