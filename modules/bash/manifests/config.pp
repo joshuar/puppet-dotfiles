@@ -4,7 +4,7 @@ define bash::config() {
     source    => "puppet:///modules/bash/${name}",
     owner     => $::myuser,
     group     => $::mygroup,
-    mode      => '0644',
+    mode      => '0640',
     show_diff => true
   }
 }

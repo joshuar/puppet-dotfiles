@@ -4,6 +4,7 @@ include ::git
 include ::redshift
 include ::golang
 include ::argos
+include ::tmux
 
 file { "${::myhome}/.config":
   ensure => directory,
@@ -17,10 +18,4 @@ vcsrepo { "${::myhome}/git/bashpass":
   provider => git,
   user     => $::myuser,
   source   => 'git@github.com:joshuar/bashpass.git',
-}
-
-vcsrepo { "${::myhome}/git/liquidprompt":
-  ensure   => present,
-  provider => git,
-  source   => 'https://github.com/nojhan/liquidprompt.git',
 }
