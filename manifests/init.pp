@@ -5,6 +5,7 @@ include ::redshift
 include ::golang
 include ::argos
 include ::tmux
+include ::fish
 
 file { "${::myhome}/.config":
   ensure => directory,
