@@ -4,7 +4,7 @@ class fish {
     ensure => directory,
     owner  => $::myuser,
     group  => $::mygroup,
-    mode   => '0640',
+    mode   => '0640'
   }
   file { "${::myhome}/.config/fish/config.fish":
     ensure    => file,
