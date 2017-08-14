@@ -14,6 +14,10 @@ abbr -a cpr cp -r
 # df/du:
 abbr -a df df -h
 abbr -a du du -h
+# tmux:
+abbr -a tm tmux -2
+abbr -a tma tmux attach-session
+abbr -a tmls tmux list-sessions
 
 # dmesg:
 alias dmesg 'dmesg -T -L'
