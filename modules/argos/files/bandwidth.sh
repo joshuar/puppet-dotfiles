@@ -3,7 +3,12 @@
 # An example script for the genmon plugin displaying the bandwidth
 # The first parameter passed to the script is the name of the interface
 
-if=${1:-wlp3s0}
+if [[ $1 ]]; then
+	if=$1
+else
+	if=$(ip route show scope global | cut -f5 -d' ')
+fi
+
 test -d /sys/class/net/$if || echo "<txt>no $if</txt><tool>No statistics for $i</tool>"
 
 prx=$(cat /sys/class/net/$if/statistics/rx_bytes)
