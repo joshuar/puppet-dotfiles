@@ -6,7 +6,7 @@
 if [[ $1 ]]; then
 	if=$1
 else
-	if=$(ip route show scope global | cut -f5 -d' ')
+	if=$(ip route show scope global | cut -f5 -d' ' | head -1)
 fi
 
 test -d /sys/class/net/$if || echo "<txt>no $if</txt><tool>No statistics for $i</tool>"

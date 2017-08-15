@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title>data.gov.au</title><link href="http://data.gov.au/dataset" rel="alternate"></link><link href="http://data.gov.au/feeds/dataset.atom" rel="self"></link><id>tag:data.gov.au,2012:/feeds/dataset.atom</id><updated>2017-07-14T21:40:39Z</updated><author><name>dga_prod</name><uri>http://data.gov.au</uri></author><subtitle>Recently created or updated datasets on data.gov.au</subtitle><link href="http://data.gov.au/feeds/dataset.atom?page=2" rel="next"></link><link href="http://data.gov.au/feeds/dataset.atom" rel="first"></link><link href="http://data.gov.au/feeds/dataset.atom?page=1515" rel="last"></link><entry><title>Native Title Determination Outcomes</title><link href="http://data.gov.au/dataset/54f906a3-2c6c-4143-bcb4-27d542429939" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/54f906a3-2c6c-4143-bcb4-27d542429939</id><summary type="html">Determination area showing categorisation of the existence or otherwise of native title for portions of the area. The native title outcomes depicted include: Native Title exists (exclusive), Native Title exists (non-exclusive), Native Title does not exist and Native Title extinguished. The areas shown according to this classification are based on the best information available to the Tribunal at the date of determination, and should be considered indicative only. The Tribunal is not able to map all native title outcome areas included in determinations. </summary><link length="7948" href="http://data.gov.au/api/2/rest/package/native-title-determination-outcomes" type="application/json" rel="enclosure"></link><category term="NNTT"></category><category term="determinations"></category><category term="native title"></category><category term="outcomes"></category><updated>2017-07-14T21:40:39Z</updated><published>2014-02-17T05:09:25Z</published></entry><entry><title>RATSIB Areas</title><link href="http://data.gov.au/dataset/0d32262b-e13b-4475-adc6-3618811c029a" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/0d32262b-e13b-4475-adc6-3618811c029a</id><summary type="html">Representative Aboriginal and Torres Strait Islander Body (RATSIB) areas</summary><link length="7487" href="http://data.gov.au/api/2/rest/package/ratsib-boundaries" type="application/json" rel="enclosure"></link><category term="NNTT"></category><category term="boundary"></category><category term="indigenous"></category><category term="native title"></category><category term="representative"></category><updated>2017-07-14T21:36:07Z</updated><published>2013-09-24T04:06:01Z</published></entry><entry><title>Indigenous Land Use Agreements</title><link href="http://data.gov.au/dataset/9e837144-8070-4983-8bf0-15e7ceb56ed7" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/9e837144-8070-4983-8bf0-15e7ceb56ed7</id><summary type="html">Registered &amp; Notified Indigenous Land Use Agreements – (as per s. 24BH(1)(a), s. 24CH and s. 24DI(1)(a)) </summary><link length="8460" href="http://data.gov.au/api/2/rest/package/indigenous-land-use-agreements-registered-or-in-notification" type="application/json" rel="enclosure"></link><category term="NNTT"></category><category term="agreement"></category><category term="australia"></category><category term="boundaries"></category><category term="native title"></category><updated>2017-07-14T21:30:28Z</updated><published>2013-05-12T11:44:57Z</published></entry><entry><title>Native Title Determinations</title><link href="http://data.gov.au/dataset/ecdbbb6c-c374-4649-9cd3-0677f44182c9" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/ecdbbb6c-c374-4649-9cd3-0677f44182c9</id><summary type="html">Determinations of Native Title (as per s. 192 NTA – National Native Title Register)</summary><link length="8237" href="http://data.gov.au/api/2/rest/package/native-title-determinations-national-native-title-register" type="application/json" rel="enclosure"></link><category term="australia"></category><category term="boundaries"></category><category term="determinations"></category><category term="native title"></category><updated>2017-07-14T21:25:25Z</updated><published>2013-05-12T11:49:24Z</published></entry><entry><title>Register of Native Title Claims</title><link href="http://data.gov.au/dataset/00602301-ad90-4657-abd9-8025d9bf485a" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/00602301-ad90-4657-abd9-8025d9bf485a</id><summary type="html">Registered applications for native title (as per s. 185 NTA- Register of Native Title Claims</summary><link length="7734" href="http://data.gov.au/api/2/rest/package/native-title-determination-applications-register" type="application/json" rel="enclosure"></link><category term="NNTT"></category><category term="claim"></category><category term="indigenous"></category><category term="native title"></category><category term="register"></category><updated>2017-07-14T21:20:22Z</updated><published>2013-09-24T04:02:36Z</published></entry><entry><title>Schedule of Native Title Determination Applications</title><link href="http://data.gov.au/dataset/bcd428f6-484c-4527-8e66-19bcc0fd5402" rel="alternate"></link><author><name>National Native Title Tribunal</name></author><id>tag:data.gov.au,2012:/dataset/bcd428f6-484c-4527-8e66-19bcc0fd5402</id><summary type="html">Schedule of Native Title Determination Applications (as per s. 98A NTA – Other public records and information)</summary><link length="7842" href="http://data.gov.au/api/2/rest/package/native-title-determination-applications-schedule" type="application/json" rel="enclosure"></link><category term="NNTT"></category><category term="application"></category><category term="claim"></category><category term="indigenous"></category><category term="native title"></category><updated>2017-07-14T21:15:26Z</updated><published>2013-09-24T02:36:45Z</published></entry><entry><title>Ballarat Planning Applications Currently on Advertising</title><link href="http://data.gov.au/dataset/f80007d1-fe53-4fa7-b021-991f0edd4a5c" rel="alternate"></link><author><name>City of Ballarat</name></author><id>tag:data.gov.au,2012:/dataset/f80007d1-fe53-4fa7-b021-991f0edd4a5c</id><summary type="html">Planning Applications within the Ballarat City Council currently on Advertising. Link to City of Ballarat eServices to comment on the application. Attributes include Application Number, Application Year, Application Date, Application Type, Description, Status, Location, Ward, Property Number, eServices link, Latitude and Longitude. 
+
+Disclaimer
+The documents and plans are made available for the sole purpose of enabling their consideration and review as part of a planning process under the Planning and Environment Act 1987. The documents and plans MUST NOT BE used for any purpose which may breach any copyright.
+NOTE: The Responsible Authority will not make a decision before the advertising completion date above.
+Although all due care has been taken to ensure that these data are correct, no warranty is expressed or implied by the City of Ballarat in their use.</summary><link length="10348" href="http://data.gov.au/api/2/rest/package/ballarat-planning-applications-currently-on-advertising" type="application/json" rel="enclosure"></link><category term="ballarat"></category><category term="planning"></category><category term="planning-applications"></category><updated>2017-07-14T20:30:10Z</updated><published>2015-06-02T03:49:10Z</published></entry><entry><title>Southern Grampians DRAFT Waste &amp; Recycle Next Collection Date</title><link href="http://data.gov.au/dataset/26f7e7f4-8f05-4b41-a6f3-d3c5e28e960e" rel="alternate"></link><author><name>Southern Grampians Shire Council </name></author><id>tag:data.gov.au,2012:/dataset/26f7e7f4-8f05-4b41-a6f3-d3c5e28e960e</id><summary type="html">DRAFT. FOR TESTING ONLY. DO NOT USE!!</summary><link length="3789" href="http://data.gov.au/api/2/rest/package/southern-grampians-draft-waste-recycle-next-collection-date" type="application/json" rel="enclosure"></link><updated>2017-07-14T19:00:13Z</updated><published>2017-06-13T04:53:42Z</published></entry><entry><title>Ballarat Waste &amp; Recycle Next Collection Date</title><link href="http://data.gov.au/dataset/c4bf1d80-2f8e-4403-8a92-3035918ba19f" rel="alternate"></link><author><name>City of Ballarat</name></author><id>tag:data.gov.au,2012:/dataset/c4bf1d80-2f8e-4403-8a92-3035918ba19f</id><summary type="html">The next collection date for properties that receive waste and/or recycling services in the City of Ballarat.
+
+Although all due care has been taken to ensure that these data are correct, no warranty is expressed or implied by the City of Ballarat in their use.</summary><link length="3941" href="http://data.gov.au/api/2/rest/package/ballarat-waste-recycle-next-collection-date" type="application/json" rel="enclosure"></link><category term="ballarat"></category><category term="recycle"></category><category term="waste"></category><updated>2017-07-14T18:17:57Z</updated><published>2016-05-13T00:42:08Z</published></entry><entry><title>Energy Rating Data for household appliances – Non Labelled products</title><link href="http://data.gov.au/dataset/5b70b4e7-4171-4c60-b2e9-6461bc213ac0" rel="alternate"></link><author><name>Department of Industry and Science</name></author><id>tag:data.gov.au,2012:/dataset/5b70b4e7-4171-4c60-b2e9-6461bc213ac0</id><summary type="html">These datasets contain information about residential, commercial and industrial products that have been registered for Minimum Energy Performance Standards (MEPS) in Australia and New Zealand. 
+
+-	Air Conditioners
+-	Ballasts 
+-	Chillers
+-	Close Control Air Conditioners
+-	Commercial Refrigerators
+-	Compact Fluorescent Lamps
+-	Computers
+-	Distribution Transformers 
+-	Electric Motors
+-	ELV Lighting Converter/Transformer
+-	External Power Supply
+-	Hot Water Heaters (Electric) 
+-	Hot Water Heaters (Gas) 
+-	Incandescent Lamps
+-	Linear Fluorescent Lamps
+-	Set Top Boxes
+
+The data is collected from suppliers when they register appliances that are going to be sold in Australia and New Zealand.
+
+These datasets do not carry an Energy Star Rating because they are not required to however products for sale must still be registered to comply with MEPS.
+
+Fields depend on the exact dataset but generally include:
+
+-	Brand Name (and URL)
+
+-	Output range (kilowatts used)
+
+-	Model Number/name
+
+-	Country of Origin and where sold
+
+-	Availability 
+
+-	Various other fields depending on the product type</summary><link length="25333" href="http://data.gov.au/api/2/rest/package/energy-rating-data-for-household-appliances-non-labelled-products" type="application/json" rel="enclosure"></link><category term="air conditioner"></category><category term="appliance"></category><category term="australia"></category><category term="ballast"></category><category term="cfl"></category><category term="chiller"></category><category term="computer"></category><category term="distribution transformer"></category><category term="electric motor"></category><category term="electricity"></category><category term="energy"></category><category term="gas"></category><category term="hot water"></category><category term="industry"></category><category term="lighting"></category><category term="new zealand"></category><category term="rating"></category><category term="refrigerator"></category><category term="set top box"></category><updated>2017-07-14T17:47:25Z</updated><published>2014-07-09T05:34:24Z</published></entry><entry><title>Energy Rating Data for household appliances – Labelled Products</title><link href="http://data.gov.au/dataset/559708e5-480e-4f94-8429-c49571e82761" rel="alternate"></link><author><name>Department of Industry, Innovation and Science</name><email>tim.laris@ret.gov.au</email></author><id>tag:data.gov.au,2012:/dataset/559708e5-480e-4f94-8429-c49571e82761</id><summary type="html">![Energy Rating](http://www.energyrating.gov.au/wp-content/uploads/2015/04/EnergyStarRating_10_Star_Smaller_2.png "Optional title")
+
+These datasets contain information about the energy efficiency of the following products that carry the Energy Rating Label.
+
+-	Air Conditioners
+
+-	Clothes dryers
+
+-	Dishwashers
+
+-	Clothes Washers
+
+-	Fridges and Freezers
+
+-	Televisions
+
+-	Computer monitors
+
+
+The data is collected from suppliers when they register appliances that are going to be sold in Australia and New Zealand.
+
+Fields depend on the exact dataset but generally include:
+
+-	Brand Name (and URL)
+
+-	Output range (kilowatts used)
+
+-	Model Number/name
+
+-	Country of Origin and where sold
+
+-	Availability 
+
+-	Star Rating
+
+-	Various other fields depending on the product type</summary><link length="16055" href="http://data.gov.au/api/2/rest/package/energy-rating-for-household-appliances" type="application/json" rel="enclosure"></link><category term="appliance"></category><category term="efficiency"></category><category term="energy"></category><category term="greenhouse"></category><updated>2017-07-14T17:40:36Z</updated><published>2013-04-17T23:01:23Z</published></entry><entry><title>APVMA PUBCRIS dataset for registered Agricultural and Veterinary Chemical Products and Approved Actives</title><link href="http://data.gov.au/dataset/0de37904-43e0-4814-b21b-5b64fafefe6f" rel="alternate"></link><author><name>Australian Pesticides and Veterinary Medicines Authority</name><email></email></author><id>tag:data.gov.au,2012:/dataset/0de37904-43e0-4814-b21b-5b64fafefe6f</id><summary type="html">This dataset contains details of agricultural and veterinary chemical products
+which are registered for use in Australia and approved active constituents.A
+The information provided includes details of products, name, registering
+company, active constituents, product uses, protected data in separate
+datasets.
+
+</summary><link length="17434" href="http://data.gov.au/api/2/rest/package/apvma-pubcris-dataset-for-registered-agricultural-and-veterinary-chemical-products-and-approved-acti" type="application/json" rel="enclosure"></link><category term="activeconstituents"></category><category term="agriculture"></category><category term="pesticides"></category><category term="veterinarymedicines"></category><updated>2017-07-14T17:31:39Z</updated><published>2013-05-12T07:43:32Z</published></entry><entry><title>NGSC Events</title><link href="http://data.gov.au/dataset/10d4c2d2-7f18-43b1-a642-59bf43b633d4" rel="alternate"></link><author><name>Northern Grampians Shire Council</name></author><id>tag:data.gov.au,2012:/dataset/10d4c2d2-7f18-43b1-a642-59bf43b633d4</id><summary type="html">__Currently in testing__
+
+Point data for location of events registered with council across the Northern Grampians Shire region. This dataset feeds from http://www.ngshire.vic.gov.au/Events/Events-Listing-Page
+
+__Field Descriptions__
+
++ __Title__ Title of Event
++ __Event Description__ Description of event
++ __Date__ Event date
++ __Time__ Event time
++ __Cost__ Cost of event
++ __Location__ Location of event
++ __Address__ Address of event
++ __Category__ Event category as per ngshire.vic.gov.au
++ __Image__ Link to event image
++ __Link__ Link to event page
++ __Contact__ Event contact
++ __Phone__ Event phone
++ __Email__ Event email
++ __Last Updated__ Last time this record was updated from ngshire.vic.gov.au
+
+
+*Data may not be available for all fields.
+
+Although all due care has been taken to ensure that this data is correct, no warranty is expressed or implied by Northern Grampians Shire Council in its use.</summary><link length="6865" href="http://data.gov.au/api/2/rest/package/ngsc-events" type="application/json" rel="enclosure"></link><category term="events"></category><category term="opencouncildata"></category><updated>2017-07-14T17:01:04Z</updated><published>2016-03-10T04:38:00Z</published></entry><entry><title>NGSC Capital Works 1617 (Points)</title><link href="http://data.gov.au/dataset/199a3992-e6e6-49df-927b-c31d93d9afb5" rel="alternate"></link><author><name>Northern Grampians Shire Council</name></author><id>tag:data.gov.au,2012:/dataset/199a3992-e6e6-49df-927b-c31d93d9afb5</id><summary type="html">Dataset describing capital works program centroids for Northern Grampians Shire Council.
+
+Although all due care has been taken to ensure that this data is correct, no warranty is expressed or implied by Northern Grampians Shire Council in its use.</summary><link length="7362" href="http://data.gov.au/api/2/rest/package/ngsc-capital-works-1617" type="application/json" rel="enclosure"></link><category term="bridge"></category><category term="capital expenditure"></category><category term="capitalworks"></category><category term="roads"></category><updated>2017-07-14T17:00:51Z</updated><published>2016-06-07T02:40:34Z</published></entry><entry><title>City of Greater Bendigo : Road Closures</title><link href="http://data.gov.au/dataset/a0f2aa22-512d-4c08-9b7d-bb8a51163f4c" rel="alternate"></link><author><name>City of Greater Bendigo</name></author><id>tag:data.gov.au,2012:/dataset/a0f2aa22-512d-4c08-9b7d-bb8a51163f4c</id><summary type="html">Road closures within the City of Greater Bendigo</summary><link length="6880" href="http://data.gov.au/api/2/rest/package/greater-bendigo-road-closures" type="application/json" rel="enclosure"></link><category term="Bendigo"></category><category term="closure"></category><category term="road"></category><updated>2017-07-14T17:00:42Z</updated><published>2016-05-10T07:28:16Z</published></entry><entry><title>City of Greater Bendigo : Garbage Collection Zones</title><link href="http://data.gov.au/dataset/c2f141ec-a3ac-4b42-a397-ba5ed0c5da46" rel="alternate"></link><author><name>City of Greater Bendigo</name></author><id>tag:data.gov.au,2012:/dataset/c2f141ec-a3ac-4b42-a397-ba5ed0c5da46</id><summary type="html">Waste collection zones within the City of Greater Bendigo, including garbage, recycling, organics and commercial collection</summary><link length="9102" href="http://data.gov.au/api/2/rest/package/greater-bendigo-garbage-collection-zones" type="application/json" rel="enclosure"></link><category term="Bendigo"></category><category term="Collection"></category><category term="Garbage"></category><category term="Waste"></category><category term="waste-collection"></category><updated>2017-07-14T17:00:29Z</updated><published>2016-07-21T08:21:29Z</published></entry><entry><title>City of Greater Bendigo : Organics Collection Boundary</title><link href="http://data.gov.au/dataset/106f4e62-3c8e-4037-8e7d-6983e897342c" rel="alternate"></link><author><name>City of Greater Bendigo</name></author><id>tag:data.gov.au,2012:/dataset/106f4e62-3c8e-4037-8e7d-6983e897342c</id><summary type="html">Organics collection boundary for the City of Greater Bendigo</summary><link length="7117" href="http://data.gov.au/api/2/rest/package/greater-bendigo-organics-collection-boundary" type="application/json" rel="enclosure"></link><category term="Bendigo"></category><category term="Collection"></category><category term="Organic"></category><updated>2017-07-14T17:00:20Z</updated><published>2016-07-25T06:21:54Z</published></entry><entry><title>Threatened Species and Ecological Communities of National Environmental Significance</title><link href="http://data.gov.au/dataset/ae652011-f39e-4c6c-91b8-1dc2d2dfee8f" rel="alternate"></link><author><name>Department of the Environment</name></author><id>tag:data.gov.au,2012:/dataset/ae652011-f39e-4c6c-91b8-1dc2d2dfee8f</id><summary type="html">__Threatened Species of National Environmental Significance__
+
+This dataset contains information about species of national environmental significance as listed in the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act). Data provided includes:  
+- species names and threatened status  
+- indicative occurrence within each state, territory and marine area  
+- links to further information in the [Species Profile and Threats Database](http://www.environment.gov.au/cgi-bin/sprat/public/sprat.pl) (SPRAT).
+
+The dataset is updated as the lists of species on schedules of the EPBC Act are amended. There is one row entry for each listed species. Links to other species information sourced from SPRAT can be made using the field containing the listed taxon identification number (ListedId).
+
+A description of the fields and methods used to create the data can be found in the explanatory notes resource.
+
+[More about threatened species](http://www.environment.gov.au/biodiversity/threatened)
+
+__Ecological Communities of National Environmental Significance (Threatened Ecological Communities)__
+
+This dataset contains information about ecological communities of national environmental significance as listed in the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act). Data provided includes:  
+- ecological community name and threatened status  
+- indicative occurrence within each state and territory  
+- links to further information in the [Species Profile and Threats Database](http://www.environment.gov.au/cgi-bin/sprat/public/sprat.pl) (SPRAT).
+
+The dataset is updated as the lists of ecological communities on schedules of the EPBC Act are amended. There is one row entry for each listed ecological community. Links to other ecological community information sourced from SPRAT can be made using the field containing the listed community identification number (ECId).
+
+A description of the fields and methods used to create the data can be found in the explanatory notes resource.
+
+[More about ecological communities](http://www.environment.gov.au/biodiversity/threatened)
+
+_Credit:_  
+Department of the Environment (2015). Species Profile and Threats Database, Department of the Environment, Canberra.</summary><link length="16660" href="http://data.gov.au/api/2/rest/package/threatened-species-state-lists" type="application/json" rel="enclosure"></link><category term="Ecological Communities"></category><category term="Threatened Species"></category><updated>2017-07-14T08:30:33Z</updated><published>2015-01-09T01:34:12Z</published></entry><entry><title>City of Gold Coast Road Closures</title><link href="http://data.gov.au/dataset/6b992102-1163-46dc-bbe0-bb997d2ffdb4" rel="alternate"></link><author><name>City of Gold Coast</name></author><id>tag:data.gov.au,2012:/dataset/6b992102-1163-46dc-bbe0-bb997d2ffdb4</id><summary type="html">This data set contains details of City of Gold Coast (City) planned road closures, due to local works and events. It is updated daily and, while the information presented here is believed to be accurate at the time of publication, no assurance can be provided past this point. Unplanned road closures due to emergency works are not included. Please note that the technical support services that facilitate this data publication service are provided under a service level agreeement with a 10 day service response time. In the event that there is a technical failure of this service it may take up to 10 days to reinstate.</summary><link length="4871" href="http://data.gov.au/api/2/rest/package/city-of-gold-coast-road-closures" type="application/json" rel="enclosure"></link><category term="gold coast"></category><updated>2017-07-14T08:01:27Z</updated><published>2014-09-04T23:42:51Z</published></entry><entry><title>Gold Coast Active &amp; Healthy</title><link href="http://data.gov.au/dataset/9c314350-fc64-445d-b0cd-7c0e2d558c94" rel="alternate"></link><author><name>City of Gold Coast</name></author><id>tag:data.gov.au,2012:/dataset/9c314350-fc64-445d-b0cd-7c0e2d558c94</id><summary type="html">The  [Active &amp; Healthy program](http://www.goldcoast.qld.gov.au/community/active-healthy-program-27969.html) offers free or low cost physical activities and healthy eating workshops every week. The program is designed to get the whole family active as well as seniors.
+
+The feed/subscriptions here contain all upcoming events. If a feed/subscription filtered by area or category is preferred please visit the [Active &amp; Healthy calendar](http://www.goldcoast.qld.gov.au/community/active-healthy-calendar-41468.html), filter the results, and use the "Subscribe" option to find the filtered feed/subscription URL.
+
+
+
+</summary><link length="7088" href="http://data.gov.au/api/2/rest/package/gold-coast-active-healthy" type="application/json" rel="enclosure"></link><category term="City of Gold Coast"></category><category term="Community and Recreational Facilities"></category><category term="calendar"></category><category term="events calendar"></category><category term="fitness"></category><updated>2017-07-14T05:24:04Z</updated><published>2017-07-14T04:44:45Z</published></entry></feed>

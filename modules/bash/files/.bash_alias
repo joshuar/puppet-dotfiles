@@ -132,6 +132,7 @@ fi
 #
 if is_avail lsof; then
     lsof_port() { sudo lsof -i"TCP:${1}" -sTCP:LISTEN; };
+    lsof_sockets='sudo lsof -U'
     ### find broken libraries after updates
     # http://forums.gentoo.org/viewtopic-p-6405830.html#6405830
     find_deadlibs() { sudo lsof | grep 'DEL.*lib' | cut -f 1 -d ' ' | sort -u; };
