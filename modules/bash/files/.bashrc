@@ -119,10 +119,6 @@
   # set a DEBUG trap to reset text color after pressing enter
   #trap 'echo -ne "\e[0m"' DEBUG
 
-  if [[ -e /usr/bin/fish ]]; then
-      exec /usr/bin/fish
-  fi
-
   # Local Variables:
   # mode: shell
   # End:
