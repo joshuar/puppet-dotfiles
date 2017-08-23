@@ -6,6 +6,7 @@ abbr -a journalctl_boot journalctl -b 0
 # ls:
 abbr -a lst ls -t
 abbr -a lstr ls -tr
+abbr -a lsl ls -l
 abbr -a lslt ls -lt
 abbr -a lsltr ls -ltr
 # cp:
