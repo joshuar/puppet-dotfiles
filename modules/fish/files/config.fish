@@ -32,3 +32,12 @@ alias watch_iostat='iostat -xz 1'
 alias weather 'curl http://wttr.in/'
 alias moon 'curl http://wttr.in/Moon'
 alias root 'sudo -i -H'
+
+function vagrant_set_provider -d "Set the default Vagrant box provider"
+  switch $argv[1]
+    case aws
+      export VAGRANT_DEFAULT_PROVIDER=aws
+    case '*'
+      export VAGRANT_DEFAULT_PROVIDER=virtualbox
+  end
+end
