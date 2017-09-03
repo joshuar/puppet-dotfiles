@@ -19,4 +19,15 @@ class golang {
     command => '/usr/bin/go get github.com/uber-common/cpustat',
     creates => "${::myhome}/gocode/bin/cpuacct"
   }
+  exec { 'go-get-dep':
+    environment => "GOPATH=${::myhome}/gocode",
+    command => '/usr/bin/go get github.com/golang/dep/cmd/dep',
+    creates => "${::myhome}/gocode/bin/dep"
+  }
+  exec { 'go-get-wuzz':
+    environment => "GOPATH=${::myhome}/gocode",
+    command => '/usr/bin/go get github.com/asciimoo/wuzz',
+    creates => "${::myhome}/gocode/bin/wuzz"
+  }
+
 }

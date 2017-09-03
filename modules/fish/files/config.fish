@@ -20,8 +20,11 @@ abbr -a tm tmux -2
 abbr -a tma tmux attach-session
 abbr -a tmls tmux list-sessions
 
+abbr -a grep grep -I -d skip -D skip
+alias grepr 'grep -nsIE -d recurse -D skip'
+
 # dmesg:
-alias dmesg 'dmesg -T -L'
+abbr -a dmesg dmesg -T -L
 alias dmesg_errors 'dmesg -xT -l err,crit,emerg'
 # sysstat:
 alias watch_vmstat='vmstat 1'
