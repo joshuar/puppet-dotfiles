@@ -20,6 +20,13 @@ abbr -a tm tmux -2
 abbr -a tma tmux attach-session
 abbr -a tmls tmux list-sessions
 
+# micro:
+abbr -a m $HOME/gocode/bin/micro
+abbr -a mr sudo $HOME/gocode/bin/micro
+
+# cpustat:
+alias cpustat 'sudo $HOME/gocode/bin/cpustat'
+
 abbr -a grep grep -I -d skip -D skip
 alias grepr 'grep -nsIE -d recurse -D skip'
 
