@@ -24,6 +24,11 @@ class golang {
     command => '/usr/bin/go get github.com/golang/dep/cmd/dep',
     creates => "${::myhome}/gocode/bin/dep"
   }
+  exec { 'go-get-govendor':
+    environment => "GOPATH=${::myhome}/gocode",
+    command => '/usr/bin/go get github.com/kardianos/govendor',
+    creates => "${::myhome}/gocode/bin/govendor"
+  }
   exec { 'go-get-wuzz':
     environment => "GOPATH=${::myhome}/gocode",
     command => '/usr/bin/go get github.com/asciimoo/wuzz',
