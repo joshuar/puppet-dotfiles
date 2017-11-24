@@ -51,3 +51,6 @@ function vagrant_set_provider -d "Set the default Vagrant box provider"
       export VAGRANT_DEFAULT_PROVIDER=virtualbox
   end
 end
+
+export EDITOR=micro
+export VISUAL=code
