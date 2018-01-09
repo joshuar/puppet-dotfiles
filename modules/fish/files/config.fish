@@ -28,8 +28,8 @@ abbr -a mr sudo $HOME/gocode/bin/micro
 alias cpustat 'sudo $HOME/gocode/bin/cpustat'
 
 # ps:
-alias ps_all 'ps -AlF | $PAGER'
-alias ps_all_threads 'ps -AlFH | $PAGER'
+alias ps_all 'ps -AlF | eval $PAGER'
+alias ps_all_threads 'ps -AlFH | eval $PAGER'
 
 # grep:
 abbr -a grep grep -I -d skip -D skip
