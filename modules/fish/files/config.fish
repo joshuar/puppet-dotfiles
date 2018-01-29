@@ -51,11 +51,17 @@ alias root 'sudo -i -H'
 function vagrant_set_provider -d "Set the default Vagrant box provider"
   switch $argv[1]
     case aws
-      export VAGRANT_DEFAULT_PROVIDER=aws
+      set -xg VAGRANT_DEFAULT_PROVIDER aws
     case '*'
-      export VAGRANT_DEFAULT_PROVIDER=virtualbox
+      set -xg VAGRANT_DEFAULT_PROVIDER virtualbox
   end
 end
 
-export EDITOR=micro
-export VISUAL=code
+set -xg EDITOR micro
+set -xg VISUAL code
+
+set fish_color_command white
+
+if grep -q bobthefish ~/.config/omf/theme
+  set -g theme_color_scheme solarized
+end
