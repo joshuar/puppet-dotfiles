@@ -4,35 +4,34 @@ class golang {
   }
   exec { 'go-get-micro':
     environment => "GOPATH=${::myhome}/gocode",
-    command => '/usr/bin/go get  -d github.com/zyedidia/micro/cmd/micro',
+    command => '/usr/bin/go get -d github.com/zyedidia/micro/cmd/micro',
     creates => "${::myhome}/gocode/src/github.com/zyedidia/micro"
   }
   exec { 'install-micro':
     environment => "GOPATH=${::myhome}/gocode",
     cwd => "${::myhome}/gocode/src/github.com/zyedidia/micro",
     command => '/usr/bin/make install',
-    creates => "${::myhome}gocode/bin/micro",
+    creates => "${::myhome}/gocode/bin/micro",
     require => Exec['go-get-micro']
   }
-  exec { 'go-get-cpuacct':
-    environment => "GOPATH=${::myhome}/gocode",
-    command => '/usr/bin/go get github.com/uber-common/cpustat',
-    creates => "${::myhome}/gocode/bin/cpuacct"
-  }
-  exec { 'go-get-dep':
-    environment => "GOPATH=${::myhome}/gocode",
-    command => '/usr/bin/go get github.com/golang/dep/cmd/dep',
-    creates => "${::myhome}/gocode/bin/dep"
-  }
-  exec { 'go-get-govendor':
-    environment => "GOPATH=${::myhome}/gocode",
-    command => '/usr/bin/go get github.com/kardianos/govendor',
-    creates => "${::myhome}/gocode/bin/govendor"
-  }
-  exec { 'go-get-wuzz':
-    environment => "GOPATH=${::myhome}/gocode",
-    command => '/usr/bin/go get github.com/asciimoo/wuzz',
-    creates => "${::myhome}/gocode/bin/wuzz"
+
+  golang::get { 'cpustat':
+    package => 'github.com/uber-common/cpustat',
+    binary  => 'cpustat'
   }
 
+  golang::get { 'dep':
+    package => 'github.com/golang/dep/cmd/dep',
+    binary  => 'dep'
+  }
+
+  golang::get { 'govendor':
+    package => 'github.com/kardianos/govendor',
+    binary  => 'govendor'
+  }
+
+  golang::get { 'wuzz':
+    package => 'github.com/asciimoo/wuzz',
+    binary  => 'wuzz'
+  }
 }
