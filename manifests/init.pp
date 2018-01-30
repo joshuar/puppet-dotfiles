@@ -1,11 +1,14 @@
 include ::bash
 include ::emacs
 include ::git
-include ::redshift
 include ::golang
-include ::argos
 include ::tmux
 include ::fish
+
+if $facts['dmi']['chassis']['type'] == "Desktop" or $facts['dmi']['chassis']['type'] == "Laptop" {
+  include ::argos
+  include ::redshift
+}
 
 file { "${::myhome}/.config":
   ensure => directory,
