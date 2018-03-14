@@ -29,7 +29,6 @@
   export EDITOR='emacs'
   export VISUAL='emacs'
   export GOPATH=${HOME}/gocode
-  export WINEARCH=win32
 
   umask 022
 
