@@ -5,7 +5,7 @@ class fish::omf::install {
   }
 
   exec { 'run_omf_installer':
-    command => '/usr/bin/fish /tmp/omf_installer',
+    command => '/usr/bin/fish /tmp/omf_installer --noninteractive',
     creates => "${::myhome}/.config/omf",
     require => Exec['retrieve_omf_installer']
   }
