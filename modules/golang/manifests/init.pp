@@ -8,6 +8,11 @@ class golang {
     binary  => 'cpustat'
   }
 
+  golang::get { 'gotop':
+    package => 'github.com/cjbassi/gotop',
+    binary  => 'gotop'
+  }
+
   golang::get { 'dep':
     package => 'github.com/golang/dep/cmd/dep',
     binary  => 'dep'
