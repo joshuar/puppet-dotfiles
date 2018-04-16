@@ -59,6 +59,7 @@ end
 
 set -xg EDITOR micro
 set -xg VISUAL code
+set -xg WINEDEBUG -all
 
 set fish_color_command white
 
